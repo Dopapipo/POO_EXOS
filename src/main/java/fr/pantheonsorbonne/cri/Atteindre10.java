@@ -92,13 +92,30 @@ public class Atteindre10 extends GameAbstract{
 
     @Override
     public void play() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'play'");
+        for (;;) {
+            this.printGrid();
+            int[] position;
+            int number;
+            System.out.println(currentPlayer.getName() + "'s turn");
+            do {
+                position = currentPlayer.getPositionInput();
+                }
+            while (!isValidPosition(position[0]) || !isValidPosition(position[1]));
+            do {
+                number = currentPlayer.getNumberInput();
+               }
+            while (!this.isValidNumber(number)); 
+                if (makeMove(position[0], position[1], number)) {
+                    break;
+                }
+
+            }
+            grid.clearGrid();
     }
 
     @Override
     public void printWinner() {
-         System.out.println(currentPlayer.getName() + " a gagné !");
+         System.out.println(currentPlayer.getName() + " has won !");
 
     }
 

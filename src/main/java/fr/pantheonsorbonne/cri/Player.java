@@ -25,15 +25,18 @@ public class Player {
 
     public int getNumberInput() {
         int toReturn;
-            toReturn = scanner.nextInt();
+        System.out.println("Enter number: ");
+        toReturn = scanner.nextInt();
         return toReturn;
     }
 
     public int[] getPositionInput() {
         int x;
         int y;
-             x = scanner.nextInt();
-             y = scanner.nextInt();
+        System.out.println("Enter x position: ");
+         x = scanner.nextInt();
+         System.out.println("Enter y position: ");
+         y = scanner.nextInt();
         return new int[]{x,y};
     }
 

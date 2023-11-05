@@ -42,8 +42,13 @@ public abstract class Player {
         while (!isValidPosition(x)||!isValidPosition(y));
         return new int[]{x,y};
     }
-
+    /*
+     * Check if the number chosen by a player is valid
+     */
     public abstract boolean isValidNumber(int x);
+    /*
+     * Check if the position chosen by a player is valid
+     */
     public abstract boolean isValidPosition(int y);
-
+    
 }

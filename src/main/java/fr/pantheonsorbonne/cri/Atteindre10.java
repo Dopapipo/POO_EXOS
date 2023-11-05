@@ -5,6 +5,7 @@ import java.util.Random;
 public class Atteindre10 extends GameAbstract{
     private Player currentPlayer;
     Random random = new Random();
+    
     public Atteindre10(Player[] players ) {
         super(players,new ArrayList<>());
         for (int i = 1;i<10;i++){
@@ -17,8 +18,9 @@ public class Atteindre10 extends GameAbstract{
     public boolean makeMove(int row, int col, int number) {
         if (grid.isCellEmpty(row, col) && this.availableNumbers.contains(number)) {
             grid.setCellValue(row, col, number);
+            this.availableNumbers.remove(Integer.valueOf(number));
             if (checkForWinner(row, col, number)) {
-                System.out.println(currentPlayer.getName() + " a gagné !");
+                printWinner();
                 return true;
             } else {
                 currentPlayer = (currentPlayer == this.players[0]) ? this.players[1] : this.players[0];
@@ -96,20 +98,18 @@ public class Atteindre10 extends GameAbstract{
 
     @Override
     public void printWinner() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'printWinner'");
+         System.out.println(currentPlayer.getName() + " a gagné !");
+
     }
 
     @Override
     public boolean isValidNumber(int x) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isValidNumber'");
+        return this.availableNumbers.contains(x);
     }
 
     @Override
     public boolean isValidPosition(int y) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isValidPosition'");
+        return y>=0 && y<3;
     }
 
 }

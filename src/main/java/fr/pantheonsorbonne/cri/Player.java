@@ -2,7 +2,7 @@ package fr.pantheonsorbonne.cri;
 
 import java.util.Scanner;
 
-public abstract class Player {
+public class Player {
     private String name;
     private int score;
     Scanner scanner = new Scanner(System.in);
@@ -25,30 +25,16 @@ public abstract class Player {
 
     public int getNumberInput() {
         int toReturn;
-        do {
             toReturn = scanner.nextInt();
-        }
-        while (isValidNumber(toReturn));
         return toReturn;
     }
 
     public int[] getPositionInput() {
         int x;
         int y;
-        do {
              x = scanner.nextInt();
              y = scanner.nextInt();
-        }
-        while (!isValidPosition(x)||!isValidPosition(y));
         return new int[]{x,y};
     }
-    /*
-     * Check if the number chosen by a player is valid
-     */
-    public abstract boolean isValidNumber(int x);
-    /*
-     * Check if the position chosen by a player is valid
-     */
-    public abstract boolean isValidPosition(int y);
-    
+
 }
